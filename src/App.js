@@ -174,17 +174,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <a className="textDiv">
+        <a className="infoDiv">
           A click-based reaction game, inspired by ones used by professional
-          athletes to test reflexes.
-          <br></br>
-          <br></br>
-          <strong>How to play? </strong>
-          Click green buttons before the grid fills up. Avoid wrong squares for
-          minus points. The game will speed up so be quick.
+          athletes to test reflexes. To Play: Click green buttons before the grid fills up. Avoid wrong squares for
+            minus points. The game will speed up so be quick.
         </a>
       </header>
-      <br></br>
       <body className="bodyDiv">
         <div className="gamePanel">
           <div className="scorePanel">
@@ -221,6 +216,7 @@ function App() {
         </div>
       </body>
       {gameOver && <div className="gameOverMobile">GAME OVER</div>}
+      <div className="footer"></div>
     </div>
   );
 }

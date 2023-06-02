@@ -3,22 +3,29 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: #282c34;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 15vh;
+  min-height: 7vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(2px + 1.5vmin);
+  font-size: calc(1.5vmin);
   color: white;
+  max-width: 100%;
+  background-color:black
 }
 
-.textDiv {
-  width: 700px;
-  max-width: 100%;
+.infoDiv{
+  width:100%;
+  height:100%;
+  padding: 5px 20vw 5px 20vw;
+}
+
+body {
+  background-color: #282c34;
 }
 
 * {
@@ -50,7 +57,7 @@
   margin-right: auto;
   width: 100%;
   justify-content: space-between;
-  margin: 5px 65px;
+  margin: 25px 65px 5px 65px;
   font-size: 12px;
   align-items: center;
 }
@@ -66,7 +73,7 @@
   font-size: 30px;
   color: white;
   font-weight: 500;
-  background-color: red;
+  background-color: black;
   padding: 5px 10px;
 }
 
@@ -78,6 +85,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  color:white;
 }
 
 .gameOverMobile {
@@ -91,6 +99,7 @@
   margin-right: auto;
   width: 100%;
   margin: 0px 65px;
+  color: white
 }
 
 @media only screen and (max-width: 600px) {
@@ -104,7 +113,7 @@
     margin-right: auto;
     width: 100%;
     justify-content: space-between;
-    margin: 0px 27px 20px 27px;
+    margin: 20px 27px 20px 27px;
     font-size: 15px;
     align-items: center;
   }
@@ -140,7 +149,7 @@
     color: white;
     font-weight: 500;
     margin-top: -340px;
-    background-color: red;
+    background-color: black;
     margin-right: 25%;
     margin-left: 25%;
     padding: 15px;
@@ -149,12 +158,19 @@
   .App-header {
     font-size: calc(6px + 2vmin);
   }
-  .textDiv {
-    padding: 10px 5%;
-    width: 100%;
-  }
+
   .stopWatch {
     margin: 10px;
     font-size: 10px;
   }
+
+  .infoDiv{
+    width: 700px;
+    width:100%;
+    height:100%;
+    padding: 15px 10% 15px 10%;
+
+  }
 }
+
+
