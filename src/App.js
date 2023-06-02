@@ -175,8 +175,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <a className="infoDiv">
-          A click-based reaction game, inspired by ones used by professional
-          athletes to test reflexes. To Play: Click green buttons before the grid fills up. Avoid wrong squares for
+          A tap-based reaction game, inspired by ones used by professional
+          athletes to test reflexes. To Play: Tap blue buttons before the grid fills up. Avoid wrong squares for
             minus points. The game will speed up so be quick.
         </a>
       </header>
