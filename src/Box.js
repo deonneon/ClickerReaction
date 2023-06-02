@@ -6,7 +6,7 @@ export default function Box(props) {
   useEffect(() => {
     if (!props.on) {
       //setTransientColor("#FFFAFA");
-      setTransientColor("black");
+      setTransientColor("gray");
       setTimeout(() => {
         setTransientColor("transparent");
       }, 100);
