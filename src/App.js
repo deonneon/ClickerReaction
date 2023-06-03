@@ -28,6 +28,7 @@ function App() {
     return squares.filter((obj) => !obj.on);
   }
 
+  
   function toggle(id) {
     setSquares((prevSquares) => {
       const newSquares = [];
@@ -171,6 +172,12 @@ function App() {
     }`;
   };
 
+  const [isChecked, setIsChecked] = useState(true);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -180,14 +187,27 @@ function App() {
             minus points. The game will speed up so be quick.
         </a>
       </header>
+      <div className="toggle-slider">
+        <span>Precision</span>
+        <label htmlFor="toggle" className="switch">
+          <input
+            type="checkbox"
+            id="toggle"
+            checked={isChecked}
+            onChange={handleToggle}
+          />
+          <span class="slider round"></span>
+        </label>
+        <span>Reaction</span>
+      </div>
       <body className="bodyDiv">
         <div className="gamePanel">
-          <div className="scorePanel">
+          <div className={isChecked? "scorePanel" : ""}>
             <span>Current Score: {score}</span>
             <span>Highest Score: {highestScore}</span>
           </div>
           {gameOver && <div className="gameOver">GAME OVER</div>}
-          <div>
+          <div className="icon-volume">
             <div onClick={() => setIsSoundEnabled((prevState) => !prevState)}>
               {isSoundEnabled ? (
                 <FontAwesomeIcon icon={faVolumeUp} />
@@ -203,7 +223,7 @@ function App() {
 
         <div>{squareElements}</div>
 
-        <div className="stopWatch">
+        <div className={isChecked? "" : "stopWatch"}>
           <span>Elapsed time to 50-pts: {formatTime(timeElapsed)}</span>
           <span>
             <div>
