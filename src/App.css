@@ -259,3 +259,32 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.score-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.digit-container {
+  padding: 2px;
+  margin: 1px;
+  background-color: rgb(81, 80, 80);
+  border: 1px solid black;
+  font-size: 15px;
+  font-weight: bold;
+  width: 20px; /* Set a fixed width */
+  text-align: center; /* Center the digit in the div */
+  border-radius: 5px;
+}
+
+.score-rows {
+  display: flex;
+  flex-direction: row;
+}
+
+.hidden {
+  display: none;
+}

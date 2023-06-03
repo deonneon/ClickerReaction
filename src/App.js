@@ -26,6 +26,9 @@ function App() {
     setIsChecked(!isChecked);
   };
 
+  const scoreString = score.toString().padStart(3, '0');
+  const highScoreString = highestScore.toString().padStart(3, '0');
+
   useEffect(() => {
     clickSoundAudio.current = new Audio(clickSound);
   }, []);
@@ -34,6 +37,7 @@ function App() {
     return squares.filter((obj) => !obj.on);
   }
 
+  
 
   function toggle(id) {
     setSquares((prevSquares) => {
@@ -202,7 +206,23 @@ function App() {
       </div>
       <body className="bodyDiv">
         <div className="gamePanel">
-          <div className={isChecked? "scorePanel" : ""}>
+          <div className={isChecked? "score-display" : "hidden"}>
+            <div className="score-rows">            
+              {highScoreString.toString().split('').map((digit, index) => (
+              <div key={index} className="digit-container">
+                  {digit}
+              </div>
+              ))}
+            </div>
+            <div className="score-rows">            
+              {scoreString.toString().split('').map((digit, index) => (
+              <div key={index} className="digit-container">
+                  {digit}
+              </div>
+              ))}
+            </div>
+          </div>
+          <div className={isChecked? "scorePanel hidden" : ""}>
             <span>Current Score: {score}</span>
             <span>Highest Score: {highestScore}</span>
           </div>
