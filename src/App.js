@@ -188,7 +188,7 @@ function App() {
         </a>
       </header>
       <div className="toggle-slider">
-        <span>Reaction</span>
+        <span>Reaction Mode</span>
         <label htmlFor="toggle" className="switch">
           <input
             type="checkbox"
@@ -198,7 +198,7 @@ function App() {
           />
           <span class="slider round"></span>
         </label>
-        <span>Precision</span>
+        <span>Precision Mode</span>
       </div>
       <body className="bodyDiv">
         <div className="gamePanel">
