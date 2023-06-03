@@ -200,7 +200,7 @@ function App() {
         </label>
         <span>Precision Mode</span>
       </div>
-      <body className="bodyDiv">
+      <div className="bodyDiv">
         <div className="gamePanel">
           <div className={isChecked? "scorePanel" : ""}>
             <span>Current Score: {score}</span>
@@ -236,7 +236,7 @@ function App() {
             </div>
           </span>
         </div>
-      </body>
+      </div>
       {gameOver && <div className="gameOverMobile">GAME OVER</div>}
       <div className="footer"></div>
     </div>

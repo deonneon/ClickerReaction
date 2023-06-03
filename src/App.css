@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: black;
+  background-image: transparent;
 }
 
 .App-header {
@@ -15,7 +15,6 @@
   font-size: calc(1.5vmin);
   color: white;
   max-width: 100%;
-  background-color:black
 }
 
 .infoDiv{
@@ -25,6 +24,10 @@
 }
 
 body {
+  background-image: url("topographic-lines.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   background-color: black;
 }
 
@@ -35,7 +38,6 @@ body {
 .box {
   height: 120px;
   width: 120px;
-  border: 2px solid black;
   display: inline-block;
   margin: 15px;
   border-radius: 20px;
@@ -49,6 +51,7 @@ body {
   flex-wrap: wrap;
   margin: auto;
   height: 100%;
+  background-image: transparent !important;
 }
 
 .gamePanel {
@@ -134,7 +137,6 @@ body {
   }
   .box {
     height: 80px;
-    border: 1px solid black;
     border-radius: 20px;
     min-width: 18%; /* 100% / 4 boxes per row for mobile view */
     max-width: 22%; /* 100% / 4 boxes per row for mobile view */
@@ -171,7 +173,14 @@ body {
     width:100%;
     height:100%;
     padding: 15px 4% 15px 4%;
+  }
 
+  body {
+    background-image: url("topographic-lines.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
   }
 }
 
