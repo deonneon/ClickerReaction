@@ -118,27 +118,29 @@ function App() {
     }
 
     toggle(id);
-    if (isOn) {
-      const newScore = score + 1;
-      setScore(newScore);
-      if (newScore > highestScore) {
-        setHighestScore(newScore);
-      }
-      if (newScore > 50 && newScore % 6 === 0) {
-        setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.04);
-      }
-      if (newScore <= 50 && newScore > 20 && newScore % 3 === 0) {
-        setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.08);
-      }
-      if (newScore <= 20 && newScore % 3 === 0) {
-        setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.15);
-      }
-    } else {
-      // Ensure score never falls below 0
-      if (score > 4) {
-        setScore((prevScore) => prevScore - 5);
+    if (!gameOver){
+      if (isOn){
+        const newScore = score + 1;
+        setScore(newScore);
+        if (newScore > highestScore) {
+          setHighestScore(newScore);
+        }
+        if (newScore > 50 && newScore % 6 === 0) {
+          setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.04);
+        }
+        if (newScore <= 50 && newScore > 20 && newScore % 3 === 0) {
+          setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.08);
+        }
+        if (newScore <= 20 && newScore % 3 === 0) {
+          setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.15);
+        }
       } else {
-        setScore(0);
+        // Ensure score never falls below 0
+        if (score > 4) {
+          setScore((prevScore) => prevScore - 5);
+        } else {
+          setScore(0);
+        }
       }
     }
   }
