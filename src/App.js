@@ -20,6 +20,12 @@ function App() {
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
   const clickSoundAudio = useRef(null);
 
+  const [isChecked, setIsChecked] = useState(true);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+  };
+
   useEffect(() => {
     clickSoundAudio.current = new Audio(clickSound);
   }, []);
@@ -28,7 +34,7 @@ function App() {
     return squares.filter((obj) => !obj.on);
   }
 
-  
+
   function toggle(id) {
     setSquares((prevSquares) => {
       const newSquares = [];
@@ -170,12 +176,6 @@ function App() {
         ? "0" + milliseconds
         : milliseconds
     }`;
-  };
-
-  const [isChecked, setIsChecked] = useState(true);
-
-  const handleToggle = () => {
-    setIsChecked(!isChecked);
   };
 
   return (
