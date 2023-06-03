@@ -20,6 +20,8 @@ function App() {
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
   const clickSoundAudio = useRef(null);
 
+  const [isWrong, setIsWrong] = useState(false);
+
   const [isChecked, setIsChecked] = useState(true);
 
   const handleToggle = () => {
@@ -122,6 +124,7 @@ function App() {
       if (isOn){
         const newScore = score + 1;
         setScore(newScore);
+        setIsWrong(false)
         if (newScore > highestScore) {
           setHighestScore(newScore);
         }
@@ -136,6 +139,10 @@ function App() {
         }
       } else {
         // Ensure score never falls below 0
+        setIsWrong(true)
+        setTimeout(() => {
+          setIsWrong(false);
+        }, 300);
         if (score > 4) {
           setScore((prevScore) => prevScore - 5);
         } else {
@@ -205,7 +212,7 @@ function App() {
       <div className="bodyDiv">
         <div className="gamePanel">
           <div className={isChecked? "scorePanel" : ""}>
-            <span>Current Score: {score}</span>
+            <span>Current Score: {score} <a className={isWrong ? "deductions":"hidden"}>  -5</a></span>
             <span>Highest Score: {highestScore}</span>
           </div>
           {gameOver && <div className="gameOver">GAME OVER</div>}
