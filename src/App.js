@@ -139,10 +139,12 @@ function App() {
         }
       } else {
         // Ensure score never falls below 0
-        setIsWrong(true)
-        setTimeout(() => {
-          setIsWrong(false);
-        }, 300);
+        if (score > 0) {
+          setIsWrong(true)
+          setTimeout(() => {
+            setIsWrong(false);
+          }, 300);
+        }
         if (score > 4) {
           setScore((prevScore) => prevScore - 5);
         } else {
