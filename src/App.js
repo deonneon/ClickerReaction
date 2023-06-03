@@ -219,7 +219,7 @@ function App() {
           </div>
           */}  
           <button onClick={startEvents} className="startButton">
-            Click to Start
+            Start
           </button>
         </div>
 
