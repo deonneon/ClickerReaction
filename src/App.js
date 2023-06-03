@@ -188,7 +188,7 @@ function App() {
         </a>
       </header>
       <div className="toggle-slider">
-        <span>Precision</span>
+        <span>Reaction</span>
         <label htmlFor="toggle" className="switch">
           <input
             type="checkbox"
@@ -198,7 +198,7 @@ function App() {
           />
           <span class="slider round"></span>
         </label>
-        <span>Reaction</span>
+        <span>Precision</span>
       </div>
       <body className="bodyDiv">
         <div className="gamePanel">
@@ -207,6 +207,7 @@ function App() {
             <span>Highest Score: {highestScore}</span>
           </div>
           {gameOver && <div className="gameOver">GAME OVER</div>}
+          {/* 
           <div className="icon-volume">
             <div onClick={() => setIsSoundEnabled((prevState) => !prevState)}>
               {isSoundEnabled ? (
@@ -216,6 +217,7 @@ function App() {
               )}
             </div>
           </div>
+          */}  
           <button onClick={startEvents} className="startButton">
             Click to Start
           </button>
