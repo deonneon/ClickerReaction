@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/ClickerReaction/static/css/main.0900e172.css",
+    "main.js": "/ClickerReaction/static/js/main.96c07044.js",
+    "static/js/787.28cb0dcd.chunk.js": "/ClickerReaction/static/js/787.28cb0dcd.chunk.js",
+    "static/media/topographic-lines.png": "/ClickerReaction/static/media/topographic-lines.c52fca4d07e84d49d3de.png",
+    "static/media/boop.wav": "/ClickerReaction/static/media/boop.fcd8c5be1193f4284b61.wav",
+    "index.html": "/ClickerReaction/index.html",
+    "main.0900e172.css.map": "/ClickerReaction/static/css/main.0900e172.css.map",
+    "main.96c07044.js.map": "/ClickerReaction/static/js/main.96c07044.js.map",
+    "787.28cb0dcd.chunk.js.map": "/ClickerReaction/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0900e172.css",
+    "static/js/main.96c07044.js"
+  ]
+}
