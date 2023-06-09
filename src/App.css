@@ -3,22 +3,32 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-image: transparent;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 15vh;
+  min-height: 7vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(2px + 1.5vmin);
+  font-size: calc(1.5vmin);
   color: white;
+  max-width: 100%;
 }
 
-.textDiv {
-  width: 700px;
-  max-width: 100%;
+.infoDiv{
+  width:100%;
+  height:100%;
+  padding: 5px 20vw 5px 20vw;
+}
+
+body {
+  background-image: url("topographic-lines.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
 }
 
 * {
@@ -28,7 +38,6 @@
 .box {
   height: 120px;
   width: 120px;
-  border: 2px solid black;
   display: inline-block;
   margin: 15px;
   border-radius: 20px;
@@ -42,6 +51,7 @@
   flex-wrap: wrap;
   margin: auto;
   height: 100%;
+  background-image: transparent !important;
 }
 
 .gamePanel {
@@ -50,7 +60,7 @@
   margin-right: auto;
   width: 100%;
   justify-content: space-between;
-  margin: 5px 65px;
+  margin: 25px 65px 5px 65px;
   font-size: 12px;
   align-items: center;
 }
@@ -60,13 +70,14 @@
   width: 140px;
   font-size: 20px;
   padding: 5px 0px;
+  color: black;
 }
 
 .gameOver {
   font-size: 30px;
   color: white;
   font-weight: 500;
-  background-color: red;
+  background-color: black;
   padding: 5px 10px;
 }
 
@@ -74,10 +85,26 @@
   padding-top: 3px;
 }
 
+.deductions {
+  position: absolute;
+  color: red;
+  font-weight: 500;
+  font-size:20px;
+  padding-left: 10px;
+  margin-top:-8px;
+
+  -webkit-transition: opacity 3s ease-in-out;
+  -moz-transition: opacity 3s ease-in-out;
+  -ms-transition: opacity 3s ease-in-out;
+  -o-transition: opacity 3s ease-in-out;
+   opacity: 1;
+}
+
 .scorePanel {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  color:white;
 }
 
 .gameOverMobile {
@@ -91,6 +118,7 @@
   margin-right: auto;
   width: 100%;
   margin: 0px 65px;
+  color: white
 }
 
 @media only screen and (max-width: 600px) {
@@ -104,7 +132,7 @@
     margin-right: auto;
     width: 100%;
     justify-content: space-between;
-    margin: 0px 27px 20px 27px;
+    margin: 20px 27px 20px 27px;
     font-size: 15px;
     align-items: center;
   }
@@ -124,7 +152,6 @@
   }
   .box {
     height: 80px;
-    border: 1px solid black;
     border-radius: 20px;
     min-width: 18%; /* 100% / 4 boxes per row for mobile view */
     max-width: 22%; /* 100% / 4 boxes per row for mobile view */
@@ -140,7 +167,7 @@
     color: white;
     font-weight: 500;
     margin-top: -340px;
-    background-color: red;
+    background-color: black;
     margin-right: 25%;
     margin-left: 25%;
     padding: 15px;
@@ -148,13 +175,116 @@
   }
   .App-header {
     font-size: calc(6px + 2vmin);
+    padding-top:10px
   }
-  .textDiv {
-    padding: 10px 5%;
-    width: 100%;
-  }
+
   .stopWatch {
     margin: 10px;
     font-size: 10px;
   }
+
+  .infoDiv{
+    width: 700px;
+    width:100%;
+    height:100%;
+    padding: 15px 4% 15px 4%;
+  }
+
+  body {
+    background-image: url("topographic-lines.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+  }
+}
+
+
+
+.icon-volume {
+  color: white;
+}
+
+
+
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  color:white;
+}
+
+.toggle-slider {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-slider span{
+  color: white;
+  padding:10px
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #05D5FA;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #05D5FA;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.hidden {
+  display: none;
 }

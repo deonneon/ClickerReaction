@@ -5,22 +5,23 @@ export default function Box(props) {
 
   useEffect(() => {
     if (!props.on) {
-      setTransientColor("lightgreen");
+      //setTransientColor("#FFFAFA");
+      setTransientColor("gray");
       setTimeout(() => {
         setTransientColor("transparent");
       }, 100);
     } else {
-      setTransientColor("#355E3B");
+      setTransientColor("#05D5FA");
     }
   }, [props.on]);
 
   const styles = {
-    backgroundColor: props.on ? "#355E3B" : transientColor,
+    backgroundColor: props.on ? "#05D5FA" : transientColor,
   };
 
   return (
     <div
-      style={styles}
+      style={styles}s
       className="box"
       onClick={() => props.toggle(props.id)}
     ></div>

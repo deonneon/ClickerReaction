@@ -20,6 +20,14 @@ function App() {
   const [isSoundEnabled, setIsSoundEnabled] = useState(false);
   const clickSoundAudio = useRef(null);
 
+  const [isWrong, setIsWrong] = useState(false);
+
+  const [isChecked, setIsChecked] = useState(true);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+  };
+
   useEffect(() => {
     clickSoundAudio.current = new Audio(clickSound);
   }, []);
@@ -27,6 +35,7 @@ function App() {
   function getUntoggledIndexes(squares) {
     return squares.filter((obj) => !obj.on);
   }
+
 
   function toggle(id) {
     setSquares((prevSquares) => {
@@ -111,27 +120,36 @@ function App() {
     }
 
     toggle(id);
-    if (isOn) {
-      const newScore = score + 1;
-      setScore(newScore);
-      if (newScore > highestScore) {
-        setHighestScore(newScore);
-      }
-      if (newScore > 50 && newScore % 6 === 0) {
-        setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.04);
-      }
-      if (newScore <= 50 && newScore > 20 && newScore % 3 === 0) {
-        setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.08);
-      }
-      if (newScore <= 20 && newScore % 3 === 0) {
-        setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.15);
-      }
-    } else {
-      // Ensure score never falls below 0
-      if (score > 4) {
-        setScore((prevScore) => prevScore - 5);
+    if (!gameOver){
+      if (isOn){
+        const newScore = score + 1;
+        setScore(newScore);
+        setIsWrong(false)
+        if (newScore > highestScore) {
+          setHighestScore(newScore);
+        }
+        if (newScore > 50 && newScore % 6 === 0) {
+          setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.04);
+        }
+        if (newScore <= 50 && newScore > 20 && newScore % 3 === 0) {
+          setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.08);
+        }
+        if (newScore <= 20 && newScore % 3 === 0) {
+          setSpeedMultiplier((prevMultiplier) => prevMultiplier * 1.15);
+        }
       } else {
-        setScore(0);
+        // Ensure score never falls below 0
+        if (score > 0) {
+          setIsWrong(true)
+          setTimeout(() => {
+            setIsWrong(false);
+          }, 300);
+        }
+        if (score > 4) {
+          setScore((prevScore) => prevScore - 5);
+        } else {
+          setScore(0);
+        }
       }
     }
   }
@@ -174,25 +192,34 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <a className="textDiv">
-          A click-based reaction game, inspired by ones used by professional
-          athletes to test reflexes.
-          <br></br>
-          <br></br>
-          <strong>How to play? </strong>
-          Click green buttons before the grid fills up. Avoid wrong squares for
-          minus points. The game will speed up so be quick.
+        <a className="infoDiv">
+          A tap-based reaction game, inspired by ones used by professional
+          athletes to test reflexes. To Play: Tap blue buttons before the grid fills up. Avoid wrong squares for
+            minus points. The game will speed up so be quick.
         </a>
       </header>
-      <br></br>
-      <body className="bodyDiv">
+      <div className="toggle-slider">
+        <span>Reaction Mode</span>
+        <label htmlFor="toggle" className="switch">
+          <input
+            type="checkbox"
+            id="toggle"
+            checked={isChecked}
+            onChange={handleToggle}
+          />
+          <span class="slider round"></span>
+        </label>
+        <span>Precision Mode</span>
+      </div>
+      <div className="bodyDiv">
         <div className="gamePanel">
-          <div className="scorePanel">
-            <span>Current Score: {score}</span>
+          <div className={isChecked? "scorePanel" : ""}>
+            <span>Current Score: {score} <a className={isWrong ? "deductions":"hidden"}>  -5</a></span>
             <span>Highest Score: {highestScore}</span>
           </div>
           {gameOver && <div className="gameOver">GAME OVER</div>}
-          <div>
+          {/* 
+          <div className="icon-volume">
             <div onClick={() => setIsSoundEnabled((prevState) => !prevState)}>
               {isSoundEnabled ? (
                 <FontAwesomeIcon icon={faVolumeUp} />
@@ -201,14 +228,15 @@ function App() {
               )}
             </div>
           </div>
+          */}  
           <button onClick={startEvents} className="startButton">
-            Click to Start
+            Start
           </button>
         </div>
 
         <div>{squareElements}</div>
 
-        <div className="stopWatch">
+        <div className={isChecked? "" : "stopWatch"}>
           <span>Elapsed time to 50-pts: {formatTime(timeElapsed)}</span>
           <span>
             <div>
@@ -219,8 +247,9 @@ function App() {
             </div>
           </span>
         </div>
-      </body>
+      </div>
       {gameOver && <div className="gameOverMobile">GAME OVER</div>}
+      <div className="footer"></div>
     </div>
   );
 }
