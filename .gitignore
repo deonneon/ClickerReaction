@@ -27,3 +27,6 @@ yarn-error.log*
 
 # Vim
 *.swp
+
+concat.sh
+parse.txt
