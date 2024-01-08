@@ -4,6 +4,8 @@
 
 Clicker Reaction Game is a dynamic, tap-based reaction game designed to test and improve reflexes. Inspired by reaction games used by professional athletes, this game challenges players to tap highlighted squares quickly before the grid fills up. It features increasing difficulty levels, sound effects, and performance tracking.
 
+[Play here](https://deonneon.github.io/ClickerReaction/)
+
 ## Features
 
 - **Dynamic Gameplay**: Tap on the highlighted blue squares as they appear.
