@@ -4,6 +4,8 @@
   flex-direction: column;
   width: 100%;
   background-image: transparent;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .App-header {
@@ -17,9 +19,9 @@
   max-width: 100%;
 }
 
-.infoDiv{
-  width:100%;
-  height:100%;
+.infoDiv {
+  width: 100%;
+  height: 100%;
   padding: 5px 20vw 5px 20vw;
 }
 
@@ -89,22 +91,22 @@ body {
   position: absolute;
   color: red;
   font-weight: 500;
-  font-size:20px;
+  font-size: 20px;
   padding-left: 10px;
-  margin-top:-8px;
+  margin-top: -8px;
 
   -webkit-transition: opacity 3s ease-in-out;
   -moz-transition: opacity 3s ease-in-out;
   -ms-transition: opacity 3s ease-in-out;
   -o-transition: opacity 3s ease-in-out;
-   opacity: 1;
+  opacity: 1;
 }
 
 .scorePanel {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color:white;
+  color: white;
 }
 
 .gameOverMobile {
@@ -118,7 +120,7 @@ body {
   margin-right: auto;
   width: 100%;
   margin: 0px 65px;
-  color: white
+  color: white;
 }
 
 @media only screen and (max-width: 600px) {
@@ -175,7 +177,7 @@ body {
   }
   .App-header {
     font-size: calc(6px + 2vmin);
-    padding-top:10px
+    padding-top: 10px;
   }
 
   .stopWatch {
@@ -183,10 +185,10 @@ body {
     font-size: 10px;
   }
 
-  .infoDiv{
+  .infoDiv {
     width: 700px;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     padding: 15px 4% 15px 4%;
   }
 
@@ -199,15 +201,9 @@ body {
   }
 }
 
-
-
 .icon-volume {
   color: white;
 }
-
-
-
-
 
 /* The switch - the box around the slider */
 .switch {
@@ -215,7 +211,7 @@ body {
   display: inline-block;
   width: 60px;
   height: 34px;
-  color:white;
+  color: white;
 }
 
 .toggle-slider {
@@ -225,9 +221,9 @@ body {
   align-items: center;
   justify-content: center;
 }
-.toggle-slider span{
+.toggle-slider span {
   color: white;
-  padding:10px
+  padding: 10px;
 }
 
 /* Hide default HTML checkbox */
@@ -246,8 +242,8 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -258,16 +254,16 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #05D5FA;
+  background-color: #05d5fa;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #05D5FA;
+  box-shadow: 0 0 1px #05d5fa;
 }
 
 input:checked + .slider:before {
