@@ -5,8 +5,6 @@ import Box from "./Box";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
-import clickSound from "./sounds/boop.wav";
-
 function App() {
   const [squares, setSquares] = useState(boxes);
   const [score, setScore] = useState(0);
@@ -29,7 +27,7 @@ function App() {
   };
 
   useEffect(() => {
-    clickSoundAudio.current = new Audio(clickSound);
+    clickSoundAudio.current = typeof Audio === "undefined" ? null : new Audio();
   }, []);
 
   function getUntoggledIndexes(squares) {
@@ -207,7 +205,7 @@ function App() {
             checked={isChecked}
             onChange={handleToggle}
           />
-          <span class="slider round"></span>
+          <span className="slider round"></span>
         </label>
         <span>Precision Mode</span>
       </div>
